@@ -11,36 +11,339 @@
 
 <div class="hearts-container" id="heartsContainer"></div>
 
+<!-- ปุ่มเล่นเพลง -->
+<button id="musicToggle" class="music-btn">🔇 เปิดเพลง</button>
+<audio id="bgMusic" loop>
+  <source src="music/bgmusic.mp3" type="audio/mpeg">
+</audio>
+
 <div class="container">
   <header>
     <div class="title">🎂 สุขสันต์วันเกิดแม่ 🎂</div>
     <div class="subtitle">ความทรงจำดี ๆ ที่มีแม่อยู่ในทุกวัน</div>
+    <div class="hint">💡 คลิกที่รูปเพื่อพลิกดูข้อความ</div>
   </header>
 
   <div class="gallery" id="gallery">
 
-    <div class="polaroid">
-      <div class="tape"></div>
-      <img src="images/mom01.jpg" alt="รูปแม่ 1">
-      <div class="caption">ความทรงจำที่ 1</div>
+    <!-- การ์ดที่ 1 -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <div class="polaroid">
+            <div class="tape"></div>
+            <img src="images/mom01.jpg" alt="รูปแม่ 1">
+            <div class="caption">ความทรงจำที่ 1</div>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <p>ข้อความถึงแม่ที่ 1<br>เขียนอะไรก็ได้ที่อยากบอกแม่ 💗</p>
+        </div>
+      </div>
     </div>
 
-    <div class="polaroid">
-      <div class="tape"></div>
-      <img src="images/mom02.jpg" alt="รูปแม่ 2">
-      <div class="caption">ความทรงจำที่ 2</div>
+    <!-- การ์ดที่ 2 -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <div class="polaroid">
+            <div class="tape"></div>
+            <img src="images/mom02.jpg" alt="รูปแม่ 2">
+            <div class="caption">ความทรงจำที่ 2</div>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <p>ข้อความถึงแม่ที่ 2<br>เขียนอะไรก็ได้ที่อยากบอกแม่ 💗</p>
+        </div>
+      </div>
     </div>
 
-    <div class="polaroid">
-      <div class="tape"></div>
-      <img src="images/mom03.jpg" alt="รูปแม่ 3">
-      <div class="caption">ความทรงจำที่ 3</div>
+    <!-- การ์ดที่ 3 -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <div class="polaroid">
+            <div class="tape"></div>
+            <img src="images/mom03.jpg" alt="รูปแม่ 3">
+            <div class="caption">ความทรงจำที่ 3</div>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <p>ข้อความถึงแม่ที่ 3<br>เขียนอะไรก็ได้ที่อยากบอกแม่ 💗</p>
+        </div>
+      </div>
     </div>
 
-    <div class="polaroid">
-      <div class="tape"></div>
-      <img src="images/mom04.jpg" alt="รูปแม่ 4">
-      <div class="caption">ความทรงจำที่ 4</div>
+    <!-- การ์ดที่ 4 -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <div class="polaroid">
+            <div class="tape"></div>
+            <img src="images/mom04.jpg" alt="รูปแม่ 4">
+            <div class="caption">ความทรงจำที่ 4</div>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <p>ข้อความถึงแม่ที่ 4<br>เขียนอะไรก็ได้ที่อยากบอกแม่ 💗</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- การ์ดที่ 5 -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <div class="polaroid">
+            <div class="tape"></div>
+            <img src="images/mom05.jpg" alt="รูปแม่ 5">
+            <div class="caption">ความทรงจำที่ 5</div>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <p>ข้อความถึงแม่ที่ 5<br>เขียนอะไรก็ได้ที่อยากบอกแม่ 💗</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- การ์ดที่ 6 -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <div class="polaroid">
+            <div class="tape"></div>
+            <img src="images/mom06.jpg" alt="รูปแม่ 6">
+            <div class="caption">ความทรงจำที่ 6</div>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <p>ข้อความถึงแม่ที่ 6<br>เขียนอะไรก็ได้ที่อยากบอกแม่ 💗</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- การ์ดที่ 7 -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <div class="polaroid">
+            <div class="tape"></div>
+            <img src="images/mom07.jpg" alt="รูปแม่ 7">
+            <div class="caption">ความทรงจำที่ 7</div>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <p>ข้อความถึงแม่ที่ 7<br>เขียนอะไรก็ได้ที่อยากบอกแม่ 💗</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- การ์ดที่ 8 -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <div class="polaroid">
+            <div class="tape"></div>
+            <img src="images/mom08.jpg" alt="รูปแม่ 8">
+            <div class="caption">ความทรงจำที่ 8</div>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <p>ข้อความถึงแม่ที่ 8<br>เขียนอะไรก็ได้ที่อยากบอกแม่ 💗</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- การ์ดที่ 9 -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <div class="polaroid">
+            <div class="tape"></div>
+            <img src="images/mom09.jpg" alt="รูปแม่ 9">
+            <div class="caption">ความทรงจำที่ 9</div>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <p>ข้อความถึงแม่ที่ 9<br>เขียนอะไรก็ได้ที่อยากบอกแม่ 💗</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- การ์ดที่ 10 -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <div class="polaroid">
+            <div class="tape"></div>
+            <img src="images/mom10.jpg" alt="รูปแม่ 10">
+            <div class="caption">ความทรงจำที่ 10</div>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <p>ข้อความถึงแม่ที่ 10<br>เขียนอะไรก็ได้ที่อยากบอกแม่ 💗</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- การ์ดที่ 11 -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <div class="polaroid">
+            <div class="tape"></div>
+            <img src="images/mom11.jpg" alt="รูปแม่ 11">
+            <div class="caption">ความทรงจำที่ 11</div>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <p>ข้อความถึงแม่ที่ 11<br>เขียนอะไรก็ได้ที่อยากบอกแม่ 💗</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- การ์ดที่ 12 -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <div class="polaroid">
+            <div class="tape"></div>
+            <img src="images/mom12.jpg" alt="รูปแม่ 12">
+            <div class="caption">ความทรงจำที่ 12</div>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <p>ข้อความถึงแม่ที่ 12<br>เขียนอะไรก็ได้ที่อยากบอกแม่ 💗</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- การ์ดที่ 13 -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <div class="polaroid">
+            <div class="tape"></div>
+            <img src="images/mom13.jpg" alt="รูปแม่ 13">
+            <div class="caption">ความทรงจำที่ 13</div>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <p>ข้อความถึงแม่ที่ 13<br>เขียนอะไรก็ได้ที่อยากบอกแม่ 💗</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- การ์ดที่ 14 -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <div class="polaroid">
+            <div class="tape"></div>
+            <img src="images/mom14.jpg" alt="รูปแม่ 14">
+            <div class="caption">ความทรงจำที่ 14</div>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <p>ข้อความถึงแม่ที่ 14<br>เขียนอะไรก็ได้ที่อยากบอกแม่ 💗</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- การ์ดที่ 15 -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <div class="polaroid">
+            <div class="tape"></div>
+            <img src="images/mom15.jpg" alt="รูปแม่ 15">
+            <div class="caption">ความทรงจำที่ 15</div>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <p>ข้อความถึงแม่ที่ 15<br>เขียนอะไรก็ได้ที่อยากบอกแม่ 💗</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- การ์ดที่ 16 -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <div class="polaroid">
+            <div class="tape"></div>
+            <img src="images/mom16.jpg" alt="รูปแม่ 16">
+            <div class="caption">ความทรงจำที่ 16</div>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <p>ข้อความถึงแม่ที่ 16<br>เขียนอะไรก็ได้ที่อยากบอกแม่ 💗</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- การ์ดที่ 17 -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <div class="polaroid">
+            <div class="tape"></div>
+            <img src="images/mom17.jpg" alt="รูปแม่ 17">
+            <div class="caption">ความทรงจำที่ 17</div>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <p>ข้อความถึงแม่ที่ 17<br>เขียนอะไรก็ได้ที่อยากบอกแม่ 💗</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- การ์ดที่ 18 -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <div class="polaroid">
+            <div class="tape"></div>
+            <img src="images/mom18.jpg" alt="รูปแม่ 18">
+            <div class="caption">ความทรงจำที่ 18</div>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <p>ข้อความถึงแม่ที่ 18<br>เขียนอะไรก็ได้ที่อยากบอกแม่ 💗</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- การ์ดที่ 19 -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <div class="polaroid">
+            <div class="tape"></div>
+            <img src="images/mom19.jpg" alt="รูปแม่ 19">
+            <div class="caption">ความทรงจำที่ 19</div>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <p>ข้อความถึงแม่ที่ 19<br>เขียนอะไรก็ได้ที่อยากบอกแม่ 💗</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- การ์ดที่ 20 -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <div class="polaroid">
+            <div class="tape"></div>
+            <img src="images/mom20.jpg" alt="รูปแม่ 20">
+            <div class="caption">ความทรงจำที่ 20</div>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <p>ข้อความถึงแม่ที่ 20<br>เขียนอะไรก็ได้ที่อยากบอกแม่ 💗</p>
+        </div>
+      </div>
     </div>
 
   </div>

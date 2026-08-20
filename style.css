@@ -32,15 +32,37 @@ body {
   100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
 }
 
+/* ปุ่มเพลง */
+.music-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+  background: #c2568a;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 30px;
+  font-family: 'Mali', cursive;
+  font-size: 1em;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.music-btn:hover {
+  transform: scale(1.05);
+  background: #a8447a;
+}
+
 .container {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px 80px;
   position: relative;
   z-index: 1;
 }
 
-header { text-align: center; padding: 40px 0 20px; }
+header { text-align: center; padding: 40px 0 10px; }
 
 .title {
   font-family: 'Mali', cursive;
@@ -56,6 +78,13 @@ header { text-align: center; padding: 40px 0 20px; }
   color: #7a6a58;
 }
 
+.hint {
+  font-family: 'Kanit', sans-serif;
+  font-size: 0.9em;
+  color: #999;
+  margin-top: 10px;
+}
+
 .gallery {
   display: flex;
   flex-wrap: wrap;
@@ -65,25 +94,73 @@ header { text-align: center; padding: 40px 0 20px; }
   padding: 20px;
 }
 
+/* Flip card system */
+.flip-card {
+  background-color: transparent;
+  width: 230px;
+  height: 290px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s;
+  transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 4px;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+  background: linear-gradient(135deg, #fdfaf5, #f5e9ee);
+  border: 2px dashed #d8a3bf;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.flip-card-back p {
+  font-family: 'Mali', cursive;
+  font-size: 1.1em;
+  color: #7a3f5c;
+  text-align: center;
+  line-height: 1.6;
+}
+
 .polaroid {
   background: #fdfaf5;
   padding: 14px 14px 20px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.25), 0 2px 4px rgba(0,0,0,0.1);
-  width: 230px;
+  width: 100%;
+  height: 100%;
   position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
-.polaroid:hover {
-  transform: scale(1.06) rotate(0deg) !important;
+.flip-card:not(.flipped):hover .polaroid {
+  transform: scale(1.05);
   box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-  z-index: 10;
 }
 
-.polaroid:nth-child(4n+1) { transform: rotate(-6deg); }
-.polaroid:nth-child(4n+2) { transform: rotate(3deg); }
-.polaroid:nth-child(4n+3) { transform: rotate(-3deg); }
-.polaroid:nth-child(4n)   { transform: rotate(5deg); }
+.flip-card:nth-child(4n+1) .polaroid { transform: rotate(-6deg); }
+.flip-card:nth-child(4n+2) .polaroid { transform: rotate(3deg); }
+.flip-card:nth-child(4n+3) .polaroid { transform: rotate(-3deg); }
+.flip-card:nth-child(4n)   .polaroid { transform: rotate(5deg); }
 
 .polaroid img {
   width: 100%;
@@ -112,6 +189,7 @@ header { text-align: center; padding: 40px 0 20px; }
   left: 50%;
   transform: translateX(-50%) rotate(-2deg);
   box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  z-index: 2;
 }
 
 .message-box {
@@ -156,5 +234,6 @@ footer {
 
 @media (max-width: 700px) {
   .title { font-size: 2.1em; }
-  .polaroid { width: 45%; }
+  .flip-card { width: 42%; height: 240px; }
+  .music-btn { top: 10px; right: 10px; font-size: 0.85em; padding: 8px 14px; }
 }
