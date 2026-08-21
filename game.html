@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>เป่าเทียน & จุดพลุอวยพร | วันเกิดแม่</title>
+<link href="https://fonts.googleapis.com/css2?family=Mali:wght@400;600;700&family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Kanit', sans-serif;
+  background: linear-gradient(180deg, #1a1035 0%, #2d1b4e 40%, #3d2463 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  color: #fff;
+}
+
+.stars {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+.star {
+  position: absolute;
+  width: 3px; height: 3px;
+  background: #fff;
+  border-radius: 50%;
+  animation: twinkle 2s infinite ease-in-out;
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+
+.back-link {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 100;
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Mali', cursive;
+  font-size: 1.1em;
+  background: rgba(255,255,255,0.15);
+  padding: 10px 18px;
+  border-radius: 30px;
+  backdrop-filter: blur(4px);
+  transition: background 0.2s ease;
+}
+.back-link:hover { background: rgba(255,255,255,0.3); }
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 100px 20px 60px;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.title {
+  font-family: 'Mali', cursive;
+  font-size: 2.6em;
+  color: #ffd6e8;
+  text-shadow: 0 0 20px rgba(255, 214, 232, 0.5);
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-family: 'Mali', cursive;
+  font-size: 1.3em;
+  color: #d9c9f0;
+  margin-bottom: 40px;
+}
+
+/* ===== ฉาก 1: เป่าเทียน ===== */
+#candleScene {
+  display: block;
+}
+
+.cake {
+  position: relative;
+  width: 280px;
+  height: 140px;
+  margin: 40px auto 20px;
+  background: linear-gradient(180deg, #f7c8dc, #e895b8);
+  border-radius: 20px 20px 10px 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+.cake::before {
+  content: '';
+  position: absolute;
+  top: -14px; left: -8px;
+  width: calc(100% + 16px);
+  height: 24px;
+  background: #fff5f8;
+  border-radius: 50px;
+}
+
+.candles {
+  position: absolute;
+  top: -70px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+}
+
+.candle {
+  width: 10px;
+  height: 55px;
+  background: linear-gradient(180deg, #fff, #ffe08a);
+  border-radius: 3px;
+  position: relative;
+  transition: opacity 0.5s ease;
+}
+
+.flame {
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 22px;
+  background: radial-gradient(circle, #fff8d6 0%, #ffb347 60%, #ff5e3a 100%);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  animation: flicker 0.3s infinite alternate;
+  box-shadow: 0 0 12px 4px rgba(255, 180, 80, 0.6);
+}
+@keyframes flicker {
+  0% { transform: translateX(-50%) scale(1) rotate(-2deg); }
+  100% { transform: translateX(-50%) scale(1.1) rotate(2deg); }
+}
+
+.candle.out .flame { display: none; }
+.candle.out { opacity: 0.4; }
+
+.mic-status {
+  font-family: 'Mali', cursive;
+  font-size: 1.1em;
+  color: #ffe6b3;
+  margin: 20px 0 10px;
+  min-height: 28px;
+}
+
+.mic-bar-wrap {
+  width: 260px;
+  height: 14px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 10px;
+  margin: 10px auto 20px;
+  overflow: hidden;
+}
+.mic-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #ffb347, #ff5e3a);
+  transition: width 0.1s ease;
+}
+
+.blow-btn {
+  background: #ff8fb0;
+  color: #3d1b30;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-family: 'Mali', cursive;
+  font-size: 1.15em;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+  margin-top: 10px;
+  transition: transform 0.2s ease;
+}
+.blow-btn:hover { transform: scale(1.06); }
+
+.candles-cleared-msg {
+  font-family: 'Mali', cursive;
+  font-size: 1.6em;
+  color: #ffe6b3;
+  margin-top: 30px;
+  display: none;
+}
+
+/* ===== ฉาก 2: จุดพลุอวยพร ===== */
+#wishScene {
+  display: none;
+  animation: fadeIn 1s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.wish-input {
+  width: 100%;
+  max-width: 460px;
+  padding: 14px 20px;
+  border-radius: 30px;
+  border: none;
+  font-family: 'Mali', cursive;
+  font-size: 1.1em;
+  text-align: center;
+  margin: 20px 0;
+  outline: none;
+}
+
+.wish-btn {
+  background: #ffd166;
+  color: #3d1b30;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 30px;
+  font-family: 'Mali', cursive;
+  font-size: 1.2em;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(255, 209, 102, 0.4);
+  transition: transform 0.2s ease;
+  display: block;
+  margin: 0 auto;
+}
+.wish-btn:hover { transform: scale(1.06); }
+
+#fireworksCanvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.wish-list {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+.wish-tag {
+  font-family: 'Mali', cursive;
+  background: rgba(255,255,255,0.12);
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 1em;
+  color: #ffe6b3;
+}
+</style>
+</head>
+<body>
+
+<div class="stars" id="stars"></div>
+<a href="index.html" class="back-link">← กลับหน้าหลัก</a>
+<canvas id="fireworksCanvas"></canvas>
+
+<div class="container">
+  <div class="title">🎂 เป่าเทียนให้แม่กันเถอะ</div>
+  <div class="subtitle">เป่าให้เทียนดับหมดทุกเล่ม แล้วไปจุดพลุอวยพรให้แม่กัน ✨</div>
+
+  <!-- ฉาก 1: เป่าเทียน -->
+  <div id="candleScene">
+    <div class="cake">
+      <div class="candles" id="candles">
+        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"><div class="flame"></div></div>
+      </div>
+    </div>
+
+    <div class="mic-status" id="micStatus">กดปุ่มด้านล่างเพื่ออนุญาตไมโครโฟน แล้วเป่าลมใส่หน้าจอได้เลย 🎤</div>
+    <div class="mic-bar-wrap"><div class="mic-bar" id="micBar"></div></div>
+
+    <button class="blow-btn" id="micBtn">🎤 เริ่มเป่าเทียน (ใช้ไมค์)</button>
+    <br>
+    <button class="blow-btn" id="manualBtn" style="margin-top:10px; background:#c9b8f0;">👆 หรือกดเพื่อดับเทียนทีละเล่ม</button>
+
+    <div class="candles-cleared-msg" id="clearedMsg">🎉 เทียนดับหมดแล้ว! อธิษฐานอะไรให้แม่ในใจก่อนไปต่อ...</div>
+    <button class="blow-btn" id="goToWishBtn" style="display:none; margin-top:20px; background:#ffd166;">ไปจุดพลุอวยพร →</button>
+  </div>
+
+  <!-- ฉาก 2: จุดพลุ -->
+  <div id="wishScene">
+    <div class="title" style="font-size:2em;">🎇 เขียนคำขอพรให้แม่</div>
+    <div class="subtitle">พิมพ์คำอวยพร แล้วกดจุดพลุ ให้คำขอนั้นลอยขึ้นฟ้า</div>
+    <input type="text" class="wish-input" id="wishInput" placeholder="เช่น ขอให้แม่สุขภาพแข็งแรง..." maxlength="60">
+    <br>
+    <button class="wish-btn" id="fireBtn">🎇 จุดพลุ!</button>
+
+    <div class="wish-list" id="wishList"></div>
+  </div>
+</div>
+
+<script>
+// ===== สร้างดาวพื้นหลัง =====
+const starsContainer = document.getElementById('stars');
+for (let i = 0; i < 80; i++) {
+  const s = document.createElement('div');
+  s.className = 'star';
+  s.style.left = Math.random() * 100 + '%';
+  s.style.top = Math.random() * 100 + '%';
+  s.style.animationDelay = Math.random() * 2 + 's';
+  starsContainer.appendChild(s);
+}
+
+// ===== ระบบเป่าเทียน =====
+const candles = document.querySelectorAll('.candle');
+const micBtn = document.getElementById('micBtn');
+const manualBtn = document.getElementById('manualBtn');
+const micStatus = document.getElementById('micStatus');
+const micBar = document.getElementById('micBar');
+const clearedMsg = document.getElementById('clearedMsg');
+const goToWishBtn = document.getElementById('goToWishBtn');
+
+let candlesOutCount = 0;
+let audioContext, analyser, micStream, dataArray;
+
+function extinguishOneCandle() {
+  const remaining = [...candles].filter(c => !c.classList.contains('out'));
+  if (remaining.length === 0) return;
+  remaining[0].classList.add('out');
+  candlesOutCount++;
+  checkAllOut();
+}
+
+function checkAllOut() {
+  if (candlesOutCount >= candles.length) {
+    clearedMsg.style.display = 'block';
+    goToWishBtn.style.display = 'inline-block';
+    micStatus.textContent = 'เยี่ยมมาก! 🎉';
+  }
+}
+
+// ปุ่มกดดับเทียนแบบ manual (สำรองไม่มีไมค์)
+manualBtn.addEventListener('click', () => {
+  extinguishOneCandle();
+});
+
+// ใช้ไมโครโฟนจับเสียงเป่า
+micBtn.addEventListener('click', async () => {
+  try {
+    micStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    const source = audioContext.createMediaStreamSource(micStream);
+    analyser = audioContext.createAnalyser();
+    analyser.fftSize = 256;
+    source.connect(analyser);
+    dataArray = new Uint8Array(analyser.frequencyBinCount);
+
+    micStatus.textContent = '🎤 เป่าลมใส่ไมค์ตอนนี้ได้เลย!';
+    micBtn.style.display = 'none';
+    detectBlow();
+  } catch (err) {
+    micStatus.textContent = '⚠️ ไม่สามารถเข้าถึงไมค์ได้ ใช้ปุ่มกดดับเทียนแทนได้เลย';
+  }
+});
+
+let blowCooldown = false;
+function detectBlow() {
+  requestAnimationFrame(detectBlow);
+  analyser.getByteFrequencyData(dataArray);
+  const volume = dataArray.reduce((a, b) => a + b, 0) / dataArray.length;
+  micBar.style.width = Math.min(volume * 1.5, 100) + '%';
+
+  if (volume > 35 && !blowCooldown) {
+    blowCooldown = true;
+    extinguishOneCandle();
+    setTimeout(() => blowCooldown = false, 600);
+  }
+}
+
+// ไปหน้าจุดพลุ
+goToWishBtn.addEventListener('click', () => {
+  document.getElementById('candleScene').style.display = 'none';
+  document.getElementById('wishScene').style.display = 'block';
+  if (micStream) micStream.getTracks().forEach(t => t.stop());
+  if (audioContext) audioContext.close();
+});
+
+// ===== ระบบจุดพลุอวยพร =====
+const canvas = document.getElementById('fireworksCanvas');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+window.addEventListener('resize', () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
+
+let particles = [];
+
+function createFirework(x, y, text) {
+  const colors = ['#ff6b9d', '#ffd166', '#c9b8f0', '#7dd3fc', '#a3e635'];
+  const color = colors[Math.floor(Math.random() * colors.length)];
+  const count = 60;
+
+  for (let i = 0; i < count; i++) {
+    const angle = (Math.PI * 2 * i) / count;
+    const speed = 2 + Math.random() * 3;
+    particles.push({
+      x, y,
+      vx: Math.cos(angle) * speed,
+      vy: Math.sin(angle) * speed,
+      alpha: 1,
+      color,
+      size: 2 + Math.random() * 2
+    });
+  }
+
+  // ข้อความคำอวยพรลอยขึ้น
+  particles.push({
+    x, y,
+    vx: 0,
+    vy: -1,
+    alpha: 1,
+    color: '#fff',
+    text,
+    isText: true,
+    size: 18
+  });
+}
+
+function animateFireworks() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  particles.forEach((p, i) => {
+    p.x += p.vx;
+    p.y += p.vy;
+    p.vy += p.isText ? -0.005 : 0.05;
+    p.alpha -= p.isText ? 0.006 : 0.015;
+
+    if (p.alpha <= 0) {
+      particles.splice(i, 1);
+      return;
+    }
+
+    ctx.globalAlpha = p.alpha;
+    if (p.isText) {
+      ctx.font = `bold ${p.size}px Mali, sans-serif`;
+      ctx.fillStyle = '#fff5d6';
+      ctx.textAlign = 'center';
+      ctx.shadowColor = 'rgba(255,255,255,0.8)';
+      ctx.shadowBlur = 10;
+      ctx.fillText(p.text, p.x, p.y);
+    } else {
+      ctx.beginPath();
+      ctx.fillStyle = p.color;
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  });
+  ctx.globalAlpha = 1;
+  requestAnimationFrame(animateFireworks);
+}
+animateFireworks();
+
+const wishInput = document.getElementById('wishInput');
+const fireBtn = document.getElementById('fireBtn');
+const wishList = document.getElementById('wishList');
+
+fireBtn.addEventListener('click', () => {
+  const text = wishInput.value.trim();
+  if (text === '') {
+    wishInput.placeholder = 'พิมพ์คำขอพรก่อนนะ 🙏';
+    return;
+  }
+
+  const x = Math.random() * (canvas.width * 0.6) + canvas.width * 0.2;
+  const y = Math.random() * (canvas.height * 0.3) + canvas.height * 0.2;
+  createFirework(x, y, text);
+
+  const tag = document.createElement('div');
+  tag.className = 'wish-tag';
+  tag.textContent = '✨ ' + text;
+  wishList.prepend(tag);
+
+  wishInput.value = '';
+});
+
+wishInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') fireBtn.click();
+});
+</script>
+
+</body>
+</html>
