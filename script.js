@@ -1,3 +1,23 @@
+// ✅ เล่นเพลงจากหน้าหลักต่อ (ถ้าเคยเล่นอยู่ก่อนมาหน้านี้)
+const bgMusicContinue = document.getElementById('bgMusicContinue');
+
+window.addEventListener('load', () => {
+  const savedTime = sessionStorage.getItem('musicTime');
+  const savedPlaying = sessionStorage.getItem('musicPlaying');
+
+  if (savedPlaying === 'true' && savedTime && bgMusicContinue) {
+    bgMusicContinue.currentTime = parseFloat(savedTime);
+    bgMusicContinue.play().catch(() => {});
+  }
+});
+
+window.addEventListener('beforeunload', () => {
+  if (bgMusicContinue) {
+    sessionStorage.setItem('musicTime', bgMusicContinue.currentTime);
+    sessionStorage.setItem('musicPlaying', !bgMusicContinue.paused);
+  }
+});
+
 // === หัวใจลอย ===
 const heartsContainer = document.getElementById('heartsContainer');
 const symbols = ['💗', '🌸', '💕', '🌷', '💐'];
@@ -29,6 +49,22 @@ const musicBtn = document.getElementById('musicToggle');
 const bgMusic = document.getElementById('bgMusic');
 let isPlaying = false;
 
+// ✅ เช็คว่าเพลงเคยเล่นค้างมาจากหน้าอื่นไหม (ตอนโหลดหน้านี้)
+window.addEventListener('load', () => {
+  const savedTime = sessionStorage.getItem('musicTime');
+  const savedPlaying = sessionStorage.getItem('musicPlaying');
+
+  if (savedPlaying === 'true' && savedTime) {
+    bgMusic.currentTime = parseFloat(savedTime);
+    bgMusic.play().then(() => {
+      isPlaying = true;
+      musicBtn.textContent = '🔊 ปิดเพลง';
+    }).catch(err => {
+      console.log('ไม่สามารถเล่นเพลงต่ออัตโนมัติได้:', err);
+    });
+  }
+});
+
 musicBtn.addEventListener('click', () => {
   if (isPlaying) {
     bgMusic.pause();
@@ -40,4 +76,10 @@ musicBtn.addEventListener('click', () => {
     musicBtn.textContent = '🔊 ปิดเพลง';
   }
   isPlaying = !isPlaying;
+});
+
+// ✅ บันทึกสถานะเพลง (เวลาที่เล่นถึง + กำลังเล่นอยู่ไหม) ก่อนออกจากหน้านี้
+window.addEventListener('beforeunload', () => {
+  sessionStorage.setItem('musicTime', bgMusic.currentTime);
+  sessionStorage.setItem('musicPlaying', isPlaying);
 });
